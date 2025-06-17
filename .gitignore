@@ -1,0 +1,22 @@
+# Node & build
+node_modules/
+dist/
+build/
+
+# Vercel + local env
+.vercel/
+.env*
+.env
+
+# Prisma local
+**/dev.db
+**/migrations/
+
+# Wrangler secrets
+/backend/wrangler.jsonc
+
+# Logs
+*.log
+
+# Editor
+.vscode/
