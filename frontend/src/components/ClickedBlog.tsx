@@ -16,18 +16,16 @@ const ClickedBlog = () => {
     },
   });
   const [loading, setLoading] = useState(true);
+  const API = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await axios.get(
-          `http://127.0.0.1:8787/api/v1/blog/${id}`,
-          {
-            headers: {
-              Authorization: localStorage.getItem("token"),
-            },
-          }
-        );
+        const response = await axios.get(`${API}/api/v1/blog/${id}`, {
+          headers: {
+            Authorization: localStorage.getItem("token"),
+          },
+        });
         setBlogData(response.data);
       } catch (err) {
         console.error("Error fetching blog", err);

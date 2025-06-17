@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 
+const API = import.meta.env.VITE_API_BASE_URL;
+
 const Appbar = () => {
   const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem("token"));
   const navigate = useNavigate();
@@ -33,9 +35,7 @@ const Appbar = () => {
 
     const fetchName = async () => {
       console.log(id);
-      const response = await axios.get(
-        `http://127.0.0.1:8787/api/v1/user/getName/${id}`
-      );
+      const response = await axios.get(`${API}/api/v1/user/getName/${id}`);
       setName(response.data.userId.name);
       console.log();
     };

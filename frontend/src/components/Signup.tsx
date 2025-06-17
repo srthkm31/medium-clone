@@ -14,13 +14,11 @@ const Signup = () => {
 
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const API = import.meta.env.VITE_API_BASE_URL;
 
   const setCredentials = async () => {
     try {
-      const response = await axios.post(
-        "http://127.0.0.1:8787/api/v1/user/signup",
-        input
-      );
+      const response = await axios.post(`${API}/api/v1/user/signup`, input);
 
       localStorage.setItem("token", response.data.jwt_token);
       navigate("/blog");

@@ -12,10 +12,11 @@ const WriteBlog = () => {
     content: "",
   });
   const [name, setName] = useState("");
+  const API = import.meta.env.VITE_API_BASE_URL;
 
   const onClickHandler = async () => {
     const response = await axios.post(
-      "http://127.0.0.1:8787/api/v1/blog/create-blog",
+      `${API}/api/v1/blog/create-blog`,
       blogInput,
       {
         headers: {
@@ -35,9 +36,7 @@ const WriteBlog = () => {
   useEffect(() => {
     const fetchName = async () => {
       console.log(id);
-      const response = await axios.get(
-        `http://127.0.0.1:8787/api/v1/user/getName/${id}`
-      );
+      const response = await axios.get(`${API}/user/getName/${id}`);
       setName(response.data.userId.name);
       console.log();
     };

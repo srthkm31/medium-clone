@@ -12,13 +12,11 @@ const Signin = () => {
     password: "",
   });
   const navigate = useNavigate();
+  const API = import.meta.env.VITE_API_BASE_URL;
 
   const setCredentials = async () => {
     try {
-      const response = await axios.post(
-        "http://127.0.0.1:8787/api/v1/user/signin",
-        input
-      );
+      const response = await axios.post(`${API}/api/v1/user/signin`, input);
       console.log(response.data);
       localStorage.setItem("token", response.data.jwt_token);
 

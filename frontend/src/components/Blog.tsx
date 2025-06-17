@@ -19,18 +19,16 @@ const Blog = () => {
       name: string;
     };
   }
+  const API = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await axios.get(
-          `http://127.0.0.1:8787/api/v1/blog/bulk`,
-          {
-            headers: {
-              Authorization: localStorage.getItem("token"),
-            },
-          }
-        );
+        const response = await axios.get(`${API}/api/v1/blog/bulk`, {
+          headers: {
+            Authorization: localStorage.getItem("token"),
+          },
+        });
         setBlogs(response.data);
       } catch (error) {
         console.error("Error fetching blogs", error);
