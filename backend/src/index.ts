@@ -6,7 +6,10 @@ import { cors } from "hono/cors";
 const app = new Hono();
 app.use(
   cors({
-    origin: "http://localhost:5173", // or '*' to allow all origins (not recommended for prod)
+    origin: [
+      "https://medium-clone-srthk231ms-projects.vercel.app",
+      "http://localhost:5173",
+    ],
   })
 );
 
