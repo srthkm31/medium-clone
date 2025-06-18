@@ -48,7 +48,7 @@ const Appbar = () => {
   return (
     <div className="justify-center flex border-b-1 border-black">
       {loggedIn ? (
-        <div className="flex justify-between w-full pr-10 pl-10">
+        <div className="flex justify-between w-full pr-3 pl-3">
           <Link to="/blog">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +89,7 @@ const Appbar = () => {
           </div>
         </div>
       ) : (
-        <div className="flex justify-between  w-full pl-2 pr-2 items-center">
+        <div className="flex justify-between  w-full pl-3 pr-3 items-center">
           <Link to="/">
             <svg
               xmlns="http://www.w3.org/2000/svg"

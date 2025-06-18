@@ -69,7 +69,7 @@ const Blog = () => {
                 {loading ? <Skeleton width={60} /> : blog.date.split("T")[0]}
               </p>
             </div>
-            <div className="lg:w-[800px]">
+            <div className="lg:w-[800px] sm:w-[600px] w-[400px]">
               <p className="text-2xl font-bold pl-1.5">
                 {loading ? <Skeleton count={2} /> : blog.title}
               </p>
