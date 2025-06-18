@@ -4,12 +4,20 @@ import { blogRouter } from "./routes/blog";
 import { cors } from "hono/cors";
 
 const app = new Hono();
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://medium-clone-srthk231ms-projects.vercel.app",
+];
+
 app.use(
   cors({
-    origin: [
-      "https://medium-clone-srthk231ms-projects.vercel.app",
-      "http://localhost:5173",
-    ],
+    origin: (origin, _c) => {
+      if (allowedOrigins.includes(origin)) {
+        return origin;
+      }
+      return null;
+    },
+    credentials: true,
   })
 );
 
